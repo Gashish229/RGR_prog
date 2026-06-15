@@ -1,14 +1,21 @@
 #include <stdio.h>
+#include <string.h>
 
-void swap(int *a, int *b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+void remove_vowels(char *str) {
+    int j = 0;
+    char vowels[] = "aAeEiIoOuUyYаАеЕёЁиИоОуУыЫэЭюЮяЯ"; // Учет латиницы и кириллицы
+    
+    for(int i = 0; str[i] != '\0'; i++) {
+        if(!strchr(vowels, str[i])) {
+            str[j++] = str[i];
+        }
+    }
+    str[j] = '\0';
 }
 
 int main() {
-    int x = 5, y = 10;
-    swap(&x, &y);
-    printf("x = %d, y = %d\n", x, y); // x = 10, y = 5
+    char str[] = "Hello World! Привет Мир!";
+    remove_vowels(str);
+    printf("Без гласных: %s\n", str);
     return 0;
 }
