@@ -1,10 +1,13 @@
 #include <stdio.h>
 
 int main() {
-    int flags = 7; // 00000111 (установлены 0, 1, 2 биты)
-    int bit_to_clear = 1; // Сбросим 1-й бит
-    
-    flags = flags & ~(1 << bit_to_clear);
-    printf("После сброса 1-го бита: %d\n", flags); // Выведет 5 (00000101)
+    int i = 0;
+start:
+    printf("%d ", i);
+    i++;
+    if (i < 5) {
+        goto start;
+    }
+    printf("\n");
     return 0;
 }
