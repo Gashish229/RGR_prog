@@ -1,24 +1,15 @@
 #include <stdio.h>
 
-int myAtoi(const char *str) {
-    int res = 0;
-    int sign = 1;
-    int i = 0;
-    
-    if (str[0] == '-') {
-        sign = -1;
-        i++;
-    }
-    
-    for (; str[i] != '\0'; ++i) {
-        if (str[i] >= '0' && str[i] <= '9') {
-            res = res * 10 + str[i] - '0';
-        } else break;
-    }
-    return sign * res;
-}
-
 int main() {
-    printf("Число: %d\n", myAtoi("-12345"));
+    int n;
+    printf("Введите N: ");
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++) {
+        if (i % 3 == 0 && i % 5 == 0) printf("FizzBuzz ");
+        else if (i % 3 == 0) printf("Fizz ");
+        else if (i % 5 == 0) printf("Buzz ");
+        else printf("%d ", i);
+    }
+    printf("\n");
     return 0;
 }
