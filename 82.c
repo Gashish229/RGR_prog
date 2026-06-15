@@ -1,9 +1,13 @@
 #include <stdio.h>
 
-int main(int argc, char *argv[]) {
-    printf("Количество аргументов: %d\n", argc);
-    for (int i = 0; i < argc; i++) {
-        printf("Аргумент %d: %s\n", i, argv[i]);
+int main() {
+    int year;
+    printf("Введите год: ");
+    scanf("%d", &year);
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+        printf("Год високосный\n");
+    } else {
+        printf("Год не високосный\n");
     }
     return 0;
 }
