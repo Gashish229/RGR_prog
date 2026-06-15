@@ -1,19 +1,13 @@
 #include <stdio.h>
 
-void removeSpaces(char *str) {
-    int i = 0, j = 0;
-    while (str[i]) {
-        if (str[i] != ' ') {
-            str[j++] = str[i];
-        }
-        i++;
-    }
-    str[j] = '\0';
-}
-
 int main() {
-    char str[] = "a b c d e";
-    removeSpaces(str);
-    printf("Без пробелов: %s\n", str);
+    int n;
+    long long sum = 0;
+    printf("Введите N: ");
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++) {
+        sum += i * i;
+    }
+    printf("Сумма квадратов: %lld\n", sum);
     return 0;
 }
