@@ -1,11 +1,14 @@
 #include <stdio.h>
 
+size_t custom_strlen(const char *str) {
+    size_t length = 0;
+    while(str[length] != '\0') {
+        length++;
+    }
+    return length;
+}
+
 int main() {
-    int arr[] = {10, 20, 30};
-    int *p = arr; // Указывает на первый элемент
-    
-    printf("Первый: %d\n", *p);
-    p++; // Сдвиг на следующий элемент типа int
-    printf("Второй: %d\n", *p);
+    printf("Длина строки: %zu\n", custom_strlen("Привет"));
     return 0;
 }
