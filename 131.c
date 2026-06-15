@@ -1,13 +1,21 @@
 #include <stdio.h>
+#include <string.h>
 
-struct Point { int x, y; };
-
-int main() {
-    struct Point pts[3] = {{1, 1}, {2, 2}, {3, 3}};
-    FILE *file = fopen("points.bin", "wb");
-    if (file != NULL) {
-        fwrite(pts, sizeof(struct Point), 3, file);
-        fclose(file);
+int main(int argc, char *argv[]) {
+    if (argc < 3) {
+        printf("Использование: %s <подстрока> <файл>\n", argv[0]);
+        return 1;
     }
+    
+    FILE *f = fopen(argv[2], "r");
+    if (!f) return 1;
+    
+    char line[512];
+    while (fgets(line, sizeof(line), f)) {
+        if (strstr(line, argv[1])) {
+            printf("%s", line);
+        }
+    }
+    fclose(f);
     return 0;
 }
