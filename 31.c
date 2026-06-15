@@ -1,11 +1,8 @@
 #include <stdio.h>
 
 int main() {
-    int num = 4;
-    if (num % 2 == 0) {
-        printf("Число четное\n");
-    } else {
-        printf("Число нечетное\n");
-    }
+    float r = 5.0f;
+    float area = 3.141592f * r * r;
+    printf("Площадь круга: %f\n", area);
     return 0;
 }
