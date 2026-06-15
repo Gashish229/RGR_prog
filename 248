@@ -1,0 +1,21 @@
+# Переменные сборки
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c11
+
+# Целевое правило по умолчанию
+all: app
+
+# Сборка исполняемого файла из объектных зависимостей
+app: main.o calc.o
+	$(CC) main.o calc.o -o app
+
+# Компиляция модулей
+main.o: main.c calc.h
+	$(CC) $(CFLAGS) -c main.c
+
+calc.o: calc.c calc.h
+	$(CC) $(CFLAGS) -c calc.c
+
+# Очистка директории от бинарного мусора
+clean:
+	rm -rf *.o app
