@@ -1,12 +1,20 @@
 #include <stdio.h>
+#include <ctype.h>
 
 int main() {
-    char data[] = "Иван 1998 4.5";
-    char name[50];
-    int year;
-    float rating;
+    FILE *f = fopen("text.txt", "r");
+    if (!f) return 1;
     
-    sscanf(data, "%s %d %f", name, &year, &rating);
-    printf("Имя: %s, Год: %d, Рейтинг: %.1f\n", name, year, rating);
+    int count = 0, in_word = 0, c;
+    while ((c = fgetc(f)) != EOF) {
+        if (isspace(c)) {
+            in_word = 0;
+        } else if (!in_word) {
+            in_word = 1;
+            count++;
+        }
+    }
+    fclose(f);
+    printf("Количество слов: %d\n", count);
     return 0;
 }
