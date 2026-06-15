@@ -1,13 +1,15 @@
 #include <stdio.h>
-#include <stdlib.h>
-
-struct Node {
-    int data;
-    struct Node* next;
-};
 
 int main() {
-    struct Node* head = NULL;
-    printf("Структура односвязного списка создана.\n");
+    int n;
+    printf("Введите высоту N: ");
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
     return 0;
+}
 }
