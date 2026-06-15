@@ -1,14 +1,9 @@
 #include <stdio.h>
 
 int main() {
-    char ch = 'A';
-    switch (ch) {
-        case 'A': case 'E': case 'I': case 'O': case 'U':
-        case 'a': case 'e': case 'i': case 'o': case 'u':
-            printf("Гласная\n");
-            break;
-        default:
-            printf("Согласная или другой символ\n");
-    }
+    float f = 1.0f / 3.0f;
+    double d = 1.0 / 3.0;
+    printf("Float (обычно 7 знаков):  %.15f\n", f);
+    printf("Double (обычно 15 знаков): %.15lf\n", d);
     return 0;
 }
