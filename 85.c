@@ -1,10 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    int flags = 0; // 00000000
-    int bit_to_set = 2; // Установим 2-й бит (счет с нуля)
+    int choice;
+    double a, b;
+    printf("Меню:\n1 - сложение\n2 - вычитание\n3 - умножение\n4 - деление\nВыбор: ");
+    scanf("%d", &choice);
+    printf("Введите два числа: ");
+    scanf("%lf %lf", &a, &b);
     
-    flags = flags | (1 << bit_to_set);
-    printf("После установки 2-го бита: %d\n", flags); // Выведет 4
+    switch(choice) {
+        case 1: printf("Результат: %.2lf\n", a + b); break;
+        case 2: printf("Результат: %.2lf\n", a - b); break;
+        case 3: printf("Результат: %.2lf\n", a * b); break;
+        case 4: 
+            if (b != 0) printf("Результат: %.2lf\n", a / b);
+            else printf("Ошибка: деление на ноль\n");
+            break;
+        default: printf("Неверный ввод операции\n");
+    }
     return 0;
 }
