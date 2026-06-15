@@ -1,12 +1,19 @@
 #include <stdio.h>
 
 int main() {
-    FILE *file = fopen("output.txt", "r");
-    if (file != NULL) {
-        fseek(file, 0, SEEK_END); // В конец файла
-        long size = ftell(file);  // Получаем позицию (размер)
-        printf("Размер файла: %ld байт\n", size);
-        fclose(file);
+    double a, b;
+    char op;
+    printf("Введите выражение (например, 5 + 3): ");
+    scanf("%lf %c %lf", &a, &op, &b);
+    switch(op) {
+        case '+': printf("Результат: %.2lf\n", a + b); break;
+        case '-': printf("Результат: %.2lf\n", a - b); break;
+        case '*': printf("Результат: %.2lf\n", a * b); break;
+        case '/': 
+            if (b != 0) printf("Результат: %.2lf\n", a / b); 
+            else printf("Ошибка: деление на ноль\n");
+            break;
+        default: printf("Неизвестная операция\n");
     }
     return 0;
 }
