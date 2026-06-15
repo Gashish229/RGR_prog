@@ -1,11 +1,9 @@
 #include <stdio.h>
 
 int main() {
-    int arr[] = {10, 20, 30, 40};
-    int size = sizeof(arr) / sizeof(arr[0]);
-    
-    for (int i = 0; i < size; i++) {
-        printf("arr[%d] = %d\n", i, arr[i]);
-    }
+    char str[100];
+    printf("Введите строку (до первого пробела): ");
+    scanf("%99s", str); // Защита от переполнения буфера
+    printf("Строка: %s\n", str);
     return 0;
 }
