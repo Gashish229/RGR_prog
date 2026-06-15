@@ -1,15 +1,19 @@
 #include <stdio.h>
 
-void replaceChar(char *str, char oldChar, char newChar) {
-    while (*str) {
-        if (*str == oldChar) *str = newChar;
-        str++;
-    }
-}
-
 int main() {
-    char text[] = "banana";
-    replaceChar(text, 'a', 'o');
-    printf("Результат: %s\n", text); // bonono
+    int data[] = {1, 2, 3, 4, 5};
+    int read_data[5];
+    
+    FILE *out = fopen("data.bin", "wb");
+    if (out) {
+        fwrite(data, sizeof(int), 5, out);
+        fclose(out);
+    }
+    
+    FILE *in = fopen("data.bin", "rb");
+    if (in) {
+        fread(read_data, sizeof(int), 5, in);
+        fclose(in);
+    }
     return 0;
 }
