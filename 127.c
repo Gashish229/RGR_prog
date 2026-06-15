@@ -1,16 +1,19 @@
 #include <stdio.h>
-#include <ctype.h>
 
 int main() {
-    char str[] = "Education";
-    int count = 0;
-    
-    for (int i = 0; str[i] != '\0'; i++) {
-        char c = tolower((unsigned char)str[i]);
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-            count++;
-        }
+    FILE *out = fopen("data.txt", "w");
+    if (out) {
+        fprintf(out, "%s %d", "Item", 42);
+        fclose(out);
     }
-    printf("Гласных: %d\n", count);
+    
+    FILE *in = fopen("data.txt", "r");
+    char name[20];
+    int value;
+    if (in) {
+        fscanf(in, "%s %d", name, &value);
+        printf("Прочитано: %s %d\n", name, value);
+        fclose(in);
+    }
     return 0;
 }
