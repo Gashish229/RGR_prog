@@ -1,14 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    int arr[] = {3, 9, 2, 8, 5};
-    int max = arr[0];
-    
-    for (int i = 1; i < 5; i++) {
-        if (arr[i] > max) {
-            max = arr[i];
-        }
-    }
-    printf("Максимум: %d\n", max);
+    char c = 'A';
+    printf("Символ: %c, ASCII-код: %d\n", c, c);
     return 0;
 }
