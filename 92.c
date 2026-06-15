@@ -1,16 +1,12 @@
 #include <stdio.h>
-#include <ctype.h>
-
-void toUpperCase(char *str) {
-    while (*str) {
-        *str = toupper((unsigned char)*str);
-        str++;
-    }
-}
 
 int main() {
-    char str[] = "hello world";
-    toUpperCase(str);
-    printf("Верхний регистр: %s\n", str);
+    int n, count = 0;
+    printf("Введите N: ");
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++) {
+        if (i % 2 != 0) count++;
+    }
+    printf("Количество нечётных: %d\n", count);
     return 0;
 }
