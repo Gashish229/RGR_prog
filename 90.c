@@ -1,14 +1,11 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
-    char name[50];
-    printf("Введите имя: ");
-    
-    if (fgets(name, sizeof(name), stdin) != NULL) {
-        // Находим символ '\n' и заменяем его на нуль-терминатор
-        name[strcspn(name, "\n")] = '\0';
-        printf("Привет, [%s]!\n", name);
+    for (int i = 1; i <= 100; i++) {
+        if (i % 3 == 0 && i % 5 == 0) {
+            printf("%d ", i);
+        }
     }
+    printf("\n");
     return 0;
 }
