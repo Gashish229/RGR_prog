@@ -1,0 +1,5 @@
+gcc -g main.c -o program
+gdb ./program
+
+(gdb) break main
+(gdb) run
