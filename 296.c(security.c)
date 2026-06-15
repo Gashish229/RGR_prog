@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+// Статическая функция (Внутреннее связывание)
+static void internal_crypto_key(void) {
+    printf("Секретный алгоритм шифрования.\n");
+}
+
+void public_access(void) {
+    internal_crypto_key(); // Внутри своего файла вызов разрешен
+}
