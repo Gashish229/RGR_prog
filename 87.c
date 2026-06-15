@@ -1,10 +1,17 @@
 #include <stdio.h>
 
+int divide(int a, int b, int *result) {
+    if (b == 0) return -1; // Код ошибки
+    *result = a / b;
+    return 0; // Успех
+}
+
 int main() {
-    int flags = 5; // 0101
-    int bit_to_toggle = 0;
-    
-    flags = flags ^ (1 << bit_to_toggle); // Инверсия 0-го бита
-    printf("После переключения: %d\n", flags); // Выведет 4 (0100)
+    int res;
+    int status = divide(10, 0, &res);
+    if (status != 0) {
+        printf("Произошла ошибка (код %d)\n", status);
+        return status;
+    }
     return 0;
 }
