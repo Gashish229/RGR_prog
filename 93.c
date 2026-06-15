@@ -1,16 +1,13 @@
 #include <stdio.h>
-#include <ctype.h>
-
-void toLowerCase(char *str) {
-    while (*str) {
-        *str = tolower((unsigned char)*str);
-        str++;
-    }
-}
 
 int main() {
-    char str[] = "HELLO WORLD";
-    toLowerCase(str);
-    printf("Нижний регистр: %s\n", str);
+    int n;
+    printf("Введите N: ");
+    scanf("%d", &n);
+    printf("Делители: ");
+    for (int i = 1; i <= n; i++) {
+        if (n % i == 0) printf("%d ", i);
+    }
+    printf("\n");
     return 0;
 }
