@@ -1,12 +1,10 @@
 #include <stdio.h>
 
 int main() {
-    int arr[] = {1, 2, 3, 4, 5};
-    int sum = 0;
-    
-    for (int i = 0; i < 5; i++) {
-        sum += arr[i];
+    // Вывод печатных символов ASCII
+    for(int i = 32; i < 127; i++) {
+        printf("%3d: %c\t", i, i);
+        if ((i - 31) % 5 == 0) printf("\n");
     }
-    printf("Сумма: %d\n", sum);
     return 0;
 }
