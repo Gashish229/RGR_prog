@@ -1,11 +1,10 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-    for (int i = 1; i <= 3; i++) {
-        for (int j = 1; j <= 3; j++) {
-            printf("%d\t", i * j);
-        }
-        printf("\n");
-    }
+    float inf = 1.0f / 0.0f;
+    float nan = sqrt(-1.0f);
+    printf("Бесконечность (Infinity): %f\n", inf);
+    printf("Не число (NaN): %f\n", nan);
     return 0;
 }
