@@ -1,7 +1,9 @@
 #include <stdio.h>
 
 int main() {
-    int arr[5] = {0}; // Все элементы будут равны 0
-    printf("Первый элемент: %d\n", arr[0]);
+    char c;
+    printf("Введите символ: ");
+    scanf("%c", &c);
+    printf("Вы ввели: %c\n", c);
     return 0;
 }
