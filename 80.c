@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-void func1() { printf("Функция 1\n"); }
-void func2() { printf("Функция 2\n"); }
-
 int main() {
-    void (*funcs[2])() = {func1, func2};
-    
-    for (int i = 0; i < 2; i++) {
-        funcs[i](); // Вызов в цикле
+    int num;
+    printf("Введите число: ");
+    scanf("%d", &num);
+    if (num >= 1 && num <= 100) {
+        printf("В диапазоне\n");
+    } else {
+        printf("Вне диапазона\n");
     }
     return 0;
 }
