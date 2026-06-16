@@ -1,0 +1,5 @@
+# Создание динамической библиотеки
+gcc -shared -fPIC mylib.c -o libmylib.so
+# Компиляция программы с указанием пути поиска библиотеки
+gcc main.c -L. -lmylib -Wl,-rpath=. -o main
+./main
