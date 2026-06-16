@@ -1,9 +1,8 @@
 #include <stdio.h>
 
 int main() {
-    unsigned int a = 5; // 0000 0101
-    unsigned int b = ~a; // 1111 1010 (инверсия всех битов)
-    
-    printf("Инверсия 5: %u\n", b);
+    unsigned int num = 16;
+    int k = 2;
+    unsigned int result = num >> k; // Результат: 4
     return 0;
 }
