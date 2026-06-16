@@ -1,0 +1,14 @@
+CC = gcc
+TARGET = app
+
+build:
+	$(CC) main.c -o $(TARGET)
+
+test: build
+	./$(TARGET) --test
+
+clean:
+	rm -f $(TARGET)
+
+run: build
+	./$(TARGET)
