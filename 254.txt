@@ -1,0 +1,2 @@
+gcc -c file1.c file2.c
+ar rcs libmylib.a file1.o file2.o
