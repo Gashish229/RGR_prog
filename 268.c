@@ -1,16 +1,16 @@
 #include <stdio.h>
 
-int* myFunc(int a) {
-    static int result;
-    result = a * 10;
-    return &result;
-}
-
 int main() {
-    // Указатель на функцию, принимающую int и возвращающую int*
-    int* (*funcPtr)(int) = myFunc;
+    FILE *src = fopen("source.txt", "rb");
+    FILE *dst = fopen("dest.txt", "wb");
+    if (!src || !dst) return 1;
     
-    int *res = funcPtr(5);
-    printf("Результат: %d\n", *res); // 50
+    int ch;
+    while ((ch = fgetc(src)) != EOF) {
+        fputc(ch, dst);
+    }
+    
+    fclose(src);
+    fclose(dst);
     return 0;
 }
