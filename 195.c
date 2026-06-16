@@ -1,18 +1,9 @@
-#include <stdlib.h>
+#include <stdio.h>
 
-struct CNode { int data; struct CNode* next; };
+#define PRINT_SIZE(type) printf("Размер " #type ": %zu байт\n", sizeof(type))
 
-void addCircular(struct CNode** head, int val) {
-    struct CNode* newNode = malloc(sizeof(struct CNode));
-    newNode->data = val;
-    
-    if (*head == NULL) {
-        *head = newNode;
-        newNode->next = *head;
-    } else {
-        struct CNode* temp = *head;
-        while (temp->next != *head) temp = temp->next;
-        temp->next = newNode;
-        newNode->next = *head;
-    }
+int main() {
+    PRINT_SIZE(int);
+    PRINT_SIZE(double);
+    return 0;
 }
