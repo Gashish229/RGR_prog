@@ -1,13 +1,13 @@
 #include <stdio.h>
 
+int sum_array(int *arr, int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) sum += arr[i];
+    return sum;
+}
+
 int main() {
-    int a = 5, b = 10;
-    
-    // С помощью XOR
-    a = a ^ b;
-    b = a ^ b;
-    a = a ^ b;
-    
-    printf("a = %d, b = %d\n", a, b); // a = 10, b = 5
+    int arr[] = {1, 2, 3, 4, 5};
+    printf("Сумма: %d\n", sum_array(arr, 5));
     return 0;
 }
