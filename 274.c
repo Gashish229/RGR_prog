@@ -1,11 +1,8 @@
-#include <stdio.h>
-
-int main() {
-    int num = 10; // 1010
-    int bit_pos = 1;
-    
-    // Побитовое исключающее ИЛИ (XOR) переключает бит
-    num = num ^ (1 << bit_pos); 
-    printf("Результат: %d\n", num); // 1000 (8 в десятичной)
-    return 0;
+int count_set_bits(unsigned int num) {
+    int count = 0;
+    while (num) {
+        num &= (num - 1); // Сбрасывает младший установленный бит
+        count++;
+    }
+    return count;
 }
