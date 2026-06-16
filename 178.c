@@ -1,17 +1,13 @@
 #include <stdio.h>
-#include <stdlib.h>
+
+enum Month {
+    JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC
+};
 
 int main() {
-    int rows = 3, cols = 3;
-    int **mat = (int **)malloc(rows * sizeof(int *));
-    for (int i = 0; i < rows; i++) mat[i] = (int *)malloc(cols * sizeof(int));
-    
-    // Сначала освобождаем каждую строку!
-    for (int i = 0; i < rows; i++) {
-        free(mat[i]);
+    enum Month current = MAY;
+    if (current >= MAR && current <= MAY) {
+        printf("Сейчас весна\n");
     }
-    // Затем освобождаем массив указателей
-    free(mat);
-    printf("Память 2D массива успешно освобождена.\n");
     return 0;
 }
