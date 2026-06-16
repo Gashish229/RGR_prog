@@ -6,6 +6,6 @@ int fibonacci(int n) {
 }
 
 int main() {
-    printf("5-е число Фибоначчи: %d\n", fibonacci(5)); // 5
+    printf("Fibonacci(6) = %d\n", fibonacci(6));
     return 0;
 }
