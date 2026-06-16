@@ -1,9 +1,16 @@
 #include <stdio.h>
-#define PI 3.14159265
-#define CIRCLE_AREA(r) (PI * (r) * (r))
+
+typedef struct {
+    double x;
+    double y;
+} Point;
+
+void print_point(const Point *p) {
+    printf("Точка(%.2f, %.2f)\n", p->x, p->y);
+}
 
 int main() {
-    double radius = 5.0;
-    printf("Площадь: %.2f\n", CIRCLE_AREA(radius));
+    Point a = {5.5, -2.3};
+    print_point(&a);
     return 0;
 }
