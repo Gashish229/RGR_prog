@@ -1,0 +1,13 @@
+CC = gcc
+CFLAGS = -Wall -Wextra
+OBJ = main.o utils.o math.o helpers.o
+TARGET = app
+
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJ) $(TARGET)
