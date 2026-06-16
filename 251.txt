@@ -1,0 +1,2 @@
+mkdir -p project/src/utils
+touch project/main.c project/src/utils/math.c project/src/utils/math.h
