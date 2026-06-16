@@ -1,18 +1,15 @@
 #include <stdio.h>
 
-void myStrncpy(char *dest, const char *src, int n) {
-    int i;
-    for (i = 0; i < n && src[i] != '\0'; i++) {
-        dest[i] = src[i];
+int count_even(int *arr, int size) {
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] % 2 == 0) count++;
     }
-    for (; i < n; i++) {
-        dest[i] = '\0'; // Заполнение нулями
-    }
+    return count;
 }
 
 int main() {
-    char dest[10];
-    myStrncpy(dest, "Hello", 10);
-    printf("Копия: %s\n", dest);
+    int arr[] = {1, 2, 3, 4, 6};
+    printf("Четных чисел: %d\n", count_even(arr, 5));
     return 0;
 }
