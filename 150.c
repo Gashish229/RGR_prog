@@ -1,15 +1,20 @@
 #include <stdio.h>
-#include <stdbool.h>
 
-bool isPrime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
+int compare_less(int a, int b) { return a < b; }
+
+int find_min_index(int *arr, int size, int (*cmp)(int, int)) {
+    int min_idx = 0;
+    for (int i = 1; i < size; i++) {
+        if (cmp(arr[i], arr[min_idx])) {
+            min_idx = i;
+        }
     }
-    return true;
+    return min_idx;
 }
 
 int main() {
-    if (isPrime(17)) printf("17 - простое число\n");
+    int arr[] = {8, 3, 9, 1, 5};
+    int idx = find_min_index(arr, 5, compare_less);
+    printf("Минимальный элемент: %d по индексу %d\n", arr[idx], idx);
     return 0;
 }
