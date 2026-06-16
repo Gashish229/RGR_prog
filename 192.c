@@ -1,12 +1,14 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main(int argc, char *argv[]) {
-    if (argc < 3) {
-        printf("Использование: %s число1 число2\n", argv[0]);
-        return 1;
-    }
-    int sum = atoi(argv[1]) + atoi(argv[2]);
-    printf("Сумма: %d\n", sum);
+#define SWAP(a, b, type) do { \
+    type temp = (a); \
+    (a) = (b); \
+    (b) = temp; \
+} while(0)
+
+int main() {
+    int x = 5, y = 10;
+    SWAP(x, y, int);
+    printf("x = %d, y = %d\n", x, y);
     return 0;
 }
