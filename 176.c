@@ -1,15 +1,20 @@
 #include <stdio.h>
 
+struct Student {
+    char name[50];
+    int age;
+    float grade;
+};
+
 int main() {
-    char str[] = "programming";
-    int freq[256] = {0};
-
-    for (int i = 0; str[i] != '\0'; i++) {
-        freq[(unsigned char)str[i]]++;
-    }
-
-    for (int i = 0; i < 256; i++) {
-        if (freq[i] > 0) printf("'%c' : %d\n", i, freq[i]);
+    struct Student students[2] = {
+        {"Иван", 20, 4.5f},
+        {"Анна", 19, 5.0f}
+    };
+    
+    for (int i = 0; i < 2; i++) {
+        printf("Имя: %s, Возраст: %d, Оценка: %.1f\n", 
+               students[i].name, students[i].age, students[i].grade);
     }
     return 0;
 }
