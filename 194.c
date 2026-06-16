@@ -1,11 +1,15 @@
-#include <stdlib.h>
+#include <stdio.h>
 
-struct DNode { int data; struct DNode* next; struct DNode* prev; };
+#define DEBUG_MODE 1
 
-void deleteNode(struct DNode** head, struct DNode* del) {
-    if (*head == NULL || del == NULL) return;
-    if (*head == del) *head = del->next;
-    if (del->next != NULL) del->next->prev = del->prev;
-    if (del->prev != NULL) del->prev->next = del->next;
-    free(del);
+#if DEBUG_MODE
+    #define DEBUG_PRINT(fmt, ...) printf("DEBUG: " fmt "\n", ##__VA_ARGS__)
+#else
+    #define DEBUG_PRINT(fmt, ...) // Ничего не делает
+#endif
+
+int main() {
+    int value = 42;
+    DEBUG_PRINT("Значение переменной: %d", value);
+    return 0;
 }
