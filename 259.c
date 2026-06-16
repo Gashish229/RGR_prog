@@ -1,16 +1,16 @@
 #include <stdio.h>
-#include <time.h>
 
 int main() {
-    time_t rawtime;
-    struct tm *timeinfo;
-    char buffer[80];
-
-    time(&rawtime);
-    timeinfo = localtime(&rawtime);
-
-    // Форматирование: ДД.ММ.ГГГГ ЧЧ:ММ:СС
-    strftime(buffer, sizeof(buffer), "%d.%m.%Y %H:%M:%S", timeinfo);
-    printf("Текущее время: %s\n", buffer);
+    int data_out = 42, data_in = 0;
+    
+    FILE *f_out = fopen("data.bin", "wb");
+    fwrite(&data_out, sizeof(int), 1, f_out);
+    fclose(f_out);
+    
+    FILE *f_in = fopen("data.bin", "rb");
+    fread(&data_in, sizeof(int), 1, f_in);
+    fclose(f_in);
+    
+    printf("Прочитано: %d\n", data_in);
     return 0;
 }
