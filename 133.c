@@ -1,10 +1,17 @@
 #include <stdio.h>
 
-#ifndef __STDC__
-#error "Компилятор не поддерживает стандарт C!"
-#endif
-
 int main() {
-    printf("Стандартный компилятор C.\n");
+    FILE *in = fopen("source.txt", "rb");
+    FILE *out = fopen("encrypted.txt", "wb");
+    if (!in || !out) return 1;
+    
+    char key = 0x5A; // Ключ шифрования
+    int c;
+    while ((c = fgetc(in)) != EOF) {
+        fputc(c ^ key, out);
+    }
+    
+    fclose(in);
+    fclose(out);
     return 0;
 }
