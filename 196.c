@@ -1,16 +1,15 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-struct TreeNode { int data; struct TreeNode *left, *right; };
+#define ARRAY_INIT(arr, val) do { \
+    size_t size = sizeof(arr) / sizeof((arr)[0]); \
+    for (size_t i = 0; i < size; ++i) { \
+        (arr)[i] = (val); \
+    } \
+} while(0)
 
-struct TreeNode* insert(struct TreeNode* node, int data) {
-    if (node == NULL) {
-        struct TreeNode* temp = malloc(sizeof(struct TreeNode));
-        temp->data = data;
-        temp->left = temp->right = NULL;
-        return temp;
-    }
-    if (data < node->data) node->left = insert(node->left, data);
-    else if (data > node->data) node->right = insert(node->right, data);
-    return node;
+int main() {
+    int data[5];
+    ARRAY_INIT(data, 7);
+    for(int i = 0; i < 5; i++) printf("%d ", data[i]);
+    return 0;
 }
