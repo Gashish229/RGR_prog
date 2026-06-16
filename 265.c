@@ -1,11 +1,13 @@
 #include <stdio.h>
 
 int main() {
-    FILE *temp = tmpfile(); // Создает файл во временной директории ОС
-    if (temp != NULL) {
-        fputs("Временные данные", temp);
-        printf("Временный файл создан и данные записаны.\n");
-        fclose(temp); // Файл удалится из ОС автоматически!
+    FILE *file = fopen("data.bin", "rb");
+    if (!file) return 1;
+    unsigned char ch;
+    while (fread(&ch, 1, 1, file) == 1) {
+        printf("%02X ", ch);
     }
+    printf("\n");
+    fclose(file);
     return 0;
 }
