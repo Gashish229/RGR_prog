@@ -1,16 +1,16 @@
 #include <stdio.h>
-#include <sys/time.h>
+
+typedef struct { int id; float value; } Record;
 
 int main() {
-    struct timeval start, end;
-    gettimeofday(&start, NULL);
+    Record out = {1, 99.9}, in = {0, 0};
     
-    // Какая-то работа
-    for (volatile int i = 0; i < 1000000; i++);
+    FILE *fw = fopen("struct.bin", "wb");
+    fwrite(&out, sizeof(Record), 1, fw);
+    fclose(fw);
     
-    gettimeofday(&end, NULL);
-    long microsec = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec);
-    
-    printf("Затрачено микросекунд: %ld\n", microsec);
+    FILE *fr = fopen("struct.bin", "rb");
+    fread(&in, sizeof(Record), 1, fr);
+    fclose(fr);
     return 0;
 }
