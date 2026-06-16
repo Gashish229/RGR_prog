@@ -1,18 +1,17 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <math.h>
 
-int compareStrings(const void *a, const void *b) {
-    // a и b - указатели на элементы массива (которые сами являются указателями на char)
-    return strcmp(*(const char **)a, *(const char **)b);
+typedef struct {
+    double x;
+    double y;
+} Point;
+
+double calculate_distance(Point p1, Point p2) {
+    return sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2));
 }
 
 int main() {
-    const char *arr[] = {"Banana", "Apple", "Orange", "Mango"};
-    int n = sizeof(arr) / sizeof(arr[0]);
-
-    qsort(arr, n, sizeof(const char *), compareStrings);
-
-    for (int i = 0; i < n; i++) printf("%s ", arr[i]);
+    Point a = {0.0, 0.0}, b = {3.0, 4.0};
+    printf("Расстояние: %.2f\n", calculate_distance(a, b));
     return 0;
 }
