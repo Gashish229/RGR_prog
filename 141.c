@@ -1,9 +1,12 @@
 #include <stdio.h>
-#include <string.h>
+
+int string_length(const char *str) {
+    const char *p = str;
+    while (*p != '\0') p++;
+    return p - str;
+}
 
 int main() {
-    const char *str = "programming";
-    char *ptr = strchr(str, 'm');
-    if (ptr != NULL) printf("Символ найден на позиции: %ld\n", ptr - str);
+    printf("Длина: %d\n", string_length("Hello"));
     return 0;
 }
