@@ -1,17 +1,18 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-// Компаратор для qsort
-int compareInt(const void *a, const void *b) {
-    return (*(int*)a - *(int*)b);
-}
+struct Address {
+    char city[50];
+    char street[50];
+};
+
+struct Student {
+    char name[50];
+    int age;
+    struct Address address; // Вложенная структура
+};
 
 int main() {
-    int arr[] = {40, 10, 100, 90, 20, 25};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    
-    qsort(arr, n, sizeof(int), compareInt);
-    
-    for (int i = 0; i < n; i++) printf("%d ", arr[i]);
+    struct Student st = {"Иван", 20, {"Москва", "Арбат"}};
+    printf("Студент из города: %s\n", st.address.city);
     return 0;
 }
