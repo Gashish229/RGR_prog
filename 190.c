@@ -1,20 +1,27 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-void insertionSort(int arr[], int n) {
-    for (int i = 1; i < n; i++) {
-        int key = arr[i];
-        int j = i - 1;
-        while (j >= 0 && arr[j] > key) {
-            arr[j + 1] = arr[j];
-            j = j - 1;
-        }
-        arr[j + 1] = key;
-    }
+typedef struct {
+    char name[50];
+    float average_score;
+} Student;
+
+int compare_students(const void *a, const void *b) {
+    Student *s1 = (Student *)a;
+    Student *s2 = (Student *)b;
+    if (s1->average_score < s2->average_score) return 1; // по убыванию
+    if (s1->average_score > s2->average_score) return -1;
+    return 0;
 }
 
 int main() {
-    int arr[] = {12, 11, 13, 5, 6};
-    insertionSort(arr, 5);
-    for (int i = 0; i < 5; i++) printf("%d ", arr[i]);
+    Student students[] = { {"Анна", 4.2}, {"Борис", 4.8}, {"Влад", 3.9} };
+    size_t count = sizeof(students) / sizeof(students[0]);
+    
+    qsort(students, count, sizeof(Student), compare_students);
+    
+    for (size_t i = 0; i < count; i++) {
+        printf("%s: %.1f\n", students[i].name, students[i].average_score);
+    }
     return 0;
 }
