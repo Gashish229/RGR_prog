@@ -1,14 +1,28 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-void *myMemmove(void *dest, const void *src, size_t n) {
-    char *d = (char *)dest;
-    const char *s = (const char *)src;
+typedef struct {
+    char name[50];
+    double price;
+    int quantity;
+} Product;
+
+int main() {
+    int count = 2;
+    Product **products = malloc(count * sizeof(Product*));
     
-    if (d < s) {
-        while (n--) *d++ = *s++;
-    } else {
-        d += n; s += n;
-        while (n--) *(--d) = *(--s);
+    for (int i = 0; i < count; i++) {
+        products[i] = malloc(sizeof(Product));
+        sprintf(products[i]->name, "Товар %d", i+1);
+        products[i]->price = 100.5 * (i + 1);
+        products[i]->quantity = 10 * (i + 1);
     }
-    return dest;
+    
+    for (int i = 0; i < count; i++) {
+        printf("%s: %.2f (В наличии: %d)\n", products[i]->name, products[i]->price, products[i]->quantity);
+        free(products[i]);
+    }
+    free(products);
+    return 0;
 }
