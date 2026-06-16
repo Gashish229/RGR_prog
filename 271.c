@@ -1,14 +1,3 @@
-#include <stdio.h>
-
-int main() {
-    int num = 13; // В двоичной: 1101
-    int bit_pos = 2; // Проверяем 2-й бит (счет с нуля справа налево)
-    
-    // Сдвигаем 1 на нужную позицию и применяем побитовое И
-    if (num & (1 << bit_pos)) {
-        printf("Бит на позиции %d установлен (1).\n", bit_pos); // 1101 -> 2-й бит равен 1
-    } else {
-        printf("Бит на позиции %d сброшен (0).\n", bit_pos);
-    }
-    return 0;
+int check_bit(unsigned int num, int pos) {
+    return (num & (1U << pos)) != 0;
 }
