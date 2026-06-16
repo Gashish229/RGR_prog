@@ -1,17 +1,11 @@
 #include <stdio.h>
+#include <unistd.h>
 
 int main() {
-    FILE *file = fopen("test.txt", "w+");
-    fputs("Hello World!", file);
-    
-    fpos_t pos;
-    rewind(file);
-    fgetpos(file, &pos); // Сохраняем начало файла
-    
-    fgetc(file); // Читаем один символ (H)
-    fsetpos(file, &pos); // Возвращаемся в сохраненную позицию
-    
-    printf("Символ после возврата: %c\n", fgetc(file)); // Снова 'H'
-    fclose(file);
+    if (access("file.txt", F_OK) != -1) {
+        printf("Файл существует.\n");
+    } else {
+        printf("Файл не существует.\n");
+    }
     return 0;
 }
